@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo laranja claro -->
+  <rect width="32" height="32" rx="6" fill="#FFF5F0"/>
+  
+  <!-- Parede de tijolos -->
+  <path d="M6 6H26V26H6V6Z" fill="#E67E22"/>
+  <path d="M6 12H26M6 18H26M6 24H26M12 6V26M18 6V26" stroke="#D35400" stroke-width="1"/>
+  
+  <!-- Colher de pedreiro -->
+  <path d="M14 14L20 20" stroke="#7F8C8D" stroke-width="3" stroke-linecap="round"/>
+  <path d="M19 19L22 22" stroke="#2C3E50" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Respingo de argamassa -->
+  <circle cx="14" cy="14" r="4" fill="white"/>
+  <circle cx="13" cy="13" r="1" fill="#BDC3C7"/>
+  <circle cx="15" cy="15" r="1" fill="#BDC3C7"/>
+</svg> 
