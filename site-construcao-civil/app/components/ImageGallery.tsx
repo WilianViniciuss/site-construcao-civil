@@ -11,9 +11,27 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images }: ImageGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState<number | null>(0);
+  const [selectedImage, setSelectedImage] = useState<number>(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   if (images.length === 0) return null;
+
+  const handleImageClick = (index: number) => {
+    setSelectedImage(index);
+    setIsLightboxOpen(true);
+  };
+
+  const handleCloseLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const handlePrevious = () => {
+    setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setSelectedImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <>
@@ -22,7 +40,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           <div
             key={image.id}
             className="relative aspect-square cursor-pointer group"
-            onClick={() => setSelectedImage(index)}
+            onClick={() => handleImageClick(index)}
           >
             <img
               src={image.url}
@@ -49,14 +67,14 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       </div>
 
       {/* Lightbox */}
-      {selectedImage !== null && (
+      {isLightboxOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
+          onClick={handleCloseLightbox}
         >
           <div className="relative max-w-7xl w-full">
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={handleCloseLightbox}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
             >
               <svg
@@ -86,9 +104,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (selectedImage !== null) {
-                      setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1);
-                    }
+                    handlePrevious();
                   }}
                   className="p-2 text-white hover:text-gray-300 transition-colors"
                 >
@@ -112,9 +128,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (selectedImage !== null) {
-                      setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1);
-                    }
+                    handleNext();
                   }}
                   className="p-2 text-white hover:text-gray-300 transition-colors"
                 >
