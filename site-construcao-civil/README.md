@@ -1,21 +1,15 @@
-# Site de Portfólio de Construção Civil
+# Site de Construção Civil
 
-Este é um site profissional desenvolvido com Next.js para mostrar trabalhos de construção civil.
+Site profissional para empresa de construção civil desenvolvido com Next.js e Tailwind CSS.
 
 ## Tecnologias Utilizadas
 
-- Next.js 14
+- Next.js 13
 - TypeScript
 - Tailwind CSS
-- Framer Motion
-- Supabase
+- Supabase (Banco de dados e armazenamento de imagens)
 
-## Pré-requisitos
-
-- Node.js 18.17 ou superior
-- Conta no Supabase
-
-## Instalação
+## Configuração do Ambiente
 
 1. Clone o repositório:
 ```bash
@@ -28,70 +22,44 @@ cd site-construcao-civil
 npm install
 ```
 
-3. Configure as variáveis de ambiente:
-   - Crie um arquivo `.env.local` na raiz do projeto
-   - Adicione suas credenciais do Supabase:
-```
+3. Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+```env
 NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
 ```
 
-4. Configure o Supabase:
-   - Crie uma tabela `projetos` com os seguintes campos:
-     - id (int, primary key)
-     - titulo (text)
-     - descricao (text)
-     - imagem_url (text)
-     - categoria (text)
-   - Configure o bucket de armazenamento para as imagens
-   - Configure as políticas de segurança
-
-5. Inicie o servidor de desenvolvimento:
+4. Execute o projeto em desenvolvimento:
 ```bash
 npm run dev
 ```
 
-6. Acesse o site em `http://localhost:3001`
+## Deploy
+
+Este projeto está configurado para deploy automático na Vercel. Para fazer o deploy:
+
+1. Crie uma conta na [Vercel](https://vercel.com)
+2. Conecte seu repositório GitHub à Vercel
+3. Configure as variáveis de ambiente na Vercel:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. A Vercel fará o deploy automaticamente quando você fizer push para a branch principal
 
 ## Estrutura do Projeto
 
-```
-site-construcao-civil/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   └── globals.css
-├── public/
-├── .env.local
-├── next.config.js
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-└── tsconfig.json
-```
+- `/app` - Páginas e componentes da aplicação
+- `/components` - Componentes reutilizáveis
+- `/public` - Arquivos estáticos
+- `/styles` - Estilos globais
 
 ## Funcionalidades
 
-- Exibição de projetos em grid responsivo
-- Animações suaves com Framer Motion
-- Botão de WhatsApp flutuante
-- Design responsivo com Tailwind CSS
-- Integração com Supabase para armazenamento de dados e imagens
-
-## Personalização
-
-1. Para alterar o número do WhatsApp:
-   - Edite o arquivo `app/layout.tsx`
-   - Procure pelo link do WhatsApp e altere o número no formato: `5511999999999`
-
-2. Para alterar as cores:
-   - Edite o arquivo `app/globals.css`
-   - Modifique as variáveis CSS na seção `:root`
-
-3. Para adicionar mais projetos:
-   - Acesse o painel do Supabase
-   - Adicione novos registros na tabela `projetos`
-   - Faça upload das imagens no bucket de armazenamento
+- Página inicial com seção hero
+- Galeria de projetos com carrossel de imagens
+- Modal para visualização detalhada dos projetos
+- Grid de imagens em tela cheia
+- Seção "Sobre Nós" com estatísticas
+- Botão de contato via WhatsApp
+- Interface administrativa para gerenciar projetos e imagens
 
 ## Contribuição
 
@@ -103,4 +71,4 @@ site-construcao-civil/
 
 ## Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes. 
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
