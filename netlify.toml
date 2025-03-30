@@ -2,11 +2,16 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  NEXT_PUBLIC_SUPABASE_URL = ""
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = ""
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
-
-[build.environment]
-  NEXT_PUBLIC_SUPABASE_URL = ""
-  NEXT_PUBLIC_SUPABASE_ANON_KEY = "" 
+  status = 200 

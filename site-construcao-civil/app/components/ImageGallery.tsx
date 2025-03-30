@@ -11,7 +11,7 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images }: ImageGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number>(0);
 
   if (images.length === 0) return null;
 
@@ -91,7 +91,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                   className="p-2 text-white hover:text-gray-300 transition-colors"
                 >
                   <svg
-                    className="w-8 h-8"
+                    className="w-6 h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                   className="p-2 text-white hover:text-gray-300 transition-colors"
                 >
                   <svg
-                    className="w-8 h-8"
+                    className="w-6 h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
